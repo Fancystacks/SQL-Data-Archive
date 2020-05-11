@@ -1,5 +1,17 @@
 main {
   width: 50%;
   text-align: center;
-  margin: 55px auto;
+  margin: 40px auto;
+}
+
+table,
+th,
+thead {
+  border: 1px double black;
+  padding: 5px;
+}
+
+table,
+#search-name {
+  margin: 20px auto;
 }
