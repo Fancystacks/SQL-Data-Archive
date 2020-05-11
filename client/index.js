@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('http://localhost:3000/getPosts')
+    .then(response => response.json())
+    .then(data => console.log(data));
     showDataTable([]);
 });
 
