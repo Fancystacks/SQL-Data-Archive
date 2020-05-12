@@ -12,7 +12,13 @@ app.use(express.urlencoded({ extended: false }));
 
 // create
 app.post('/insert', (request, response) => {
-    console.log(request.body);
+    const { name } = request.body;
+    const db = dbService.getServiceInstance();
+
+    const result = db.addNewName(name);
+
+    result.then(data => response.json({success : true}))
+    .catch(err => console.log(err));
   });
 
 // read
