@@ -28,22 +28,22 @@ function insertRow(data) {
 
 function showDataTable(data) {
     const table = document.querySelector('table tbody');
-
-if (data.length === 0) {
+    console.log(data);
+    
+    if (data.length === 0) {
         table.innerHTML = "<tr><td class='no-data' colspan='5'>No data</td></tr>";
         return;
     }
     let tableHTML = "";
     data.forEach(function ({id, name, date_added}) {
-    tableHTML =+ "<tr>";
+    tableHTML += "<tr>";
     tableHTML += `<td>${id}</td>`;
     tableHTML += `<td>${name}</td>`;
     tableHTML += `<td>${date_added}</td>`;
-    tableHTML += `<td><button class="edit-button" data-id=${id}>Edit</button></td>`;
-    tableHTML += `<td><button class="delete-button" data-id=${id}>Delete</button></td>`;
-    tableHTML =+ "<tr>";
+    tableHTML += `<td><button class="edit-button" data-id=${id}>Edit</td>`;
+    tableHTML += `<td><button class="delete-button" data-id=${id}>Delete</td>`;
+    tableHTML += "</tr>";
     });
-
     table.innerHTML = tableHTML;
 }
 

@@ -10,7 +10,7 @@ let instance = null;
       , port: 3306
       , database: process.env.DATABASE
   });
-
+// Make connection.
 connection.connect(function(err) {
   if (err) {
     console.error(`error connecting: ${err.stack}`);
@@ -42,19 +42,18 @@ class dbService {
         }
     }
 
-    async addNewName(name) {
+    async insertNewName(name) {
         try {
             const dateAdded = new Date();
             const insertId = await new Promise((resolve, reject) => {
                 const query = "INSERT INTO names (name, date_added) VALUES (?,?);";
 
-                connection.query(query, [name, dateAdded] , (err, result) => {
+                connection.query(query, [name, dateAdded], (err, result) => {
                     if (err) reject(new Error(err.message));
                     resolve(result.insertId);
                 })
             });
             console.log(insertId);
-            
         } catch (error) {
             console.log(error);
         }
