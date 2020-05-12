@@ -1,6 +1,7 @@
 // Set up MySQL connection.
 const mysql = require("mysql");
 const dotenv = require("dotenv").config();
+let instance = null;
 
  const connection = mysql.createConnection({
       host: process.env.HOST
@@ -17,3 +18,29 @@ connection.connect(function(err) {
   }
   console.log(`connected as id ${connection.threadId}`);
 });
+
+class dbService {
+    static getServiceInstance() {
+        return instance ? instance : new dbService();
+    }
+
+    async getAllData() {
+        try {
+            const response = await new Promise((resolve, reject) => {
+                const query = "SELECT * FROM names;";
+
+                connection.query(query, (err, results) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(results);
+                })
+            });
+
+            return response;
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+module.exports = dbService;

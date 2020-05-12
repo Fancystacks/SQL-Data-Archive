@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3000;
 const dotenv = require("dotenv").config();
 const app = express();
 
-const db = require('./db');
+const dbService = require('./db');
 
 app.use(cors());
 app.use(express.json());
@@ -16,9 +16,11 @@ app.post('/insert', (request, response) => {
 
 // read
 app.get('/getPosts', (request, response) => {
-    response.json({
-        success: true
-    });
+    const db = dbService.getServiceInstance();
+    const result =  db.getAllData();
+
+    result.then(data => response.json({data : data}))
+    .catch(err => console.log(err));
   });
 
 // update
