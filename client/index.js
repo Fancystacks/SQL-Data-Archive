@@ -1,3 +1,4 @@
+// event handlers
 document.addEventListener('DOMContentLoaded', function() {
     fetch('http://localhost:3000/getPosts')
     .then(response => response.json())
@@ -25,10 +26,32 @@ function deleteRow(id) {
     });
 }
 
-// update editnbutton
+// update edit button
 function editRow(id) {
 const editSection = document.querySelector("#edit-row");
 editSection.hidden = false;
+document.querySelector("#update-input").dataset.id = id;
+}
+
+const editButton = document.querySelector("#update-button");
+
+editButton.onclick = function() {
+const updatedName = document.querySelector("#update-input");
+fetch('http://localhost:3000/update', {
+    method: 'PATCH',
+    headers: {
+        'Content-type' : 'application/json'
+    },
+    body: JSON.stringify({
+        id: updatedName.dataset.id,
+        name: updatedName.value
+    })
+}).then(response => response.json())
+.then(data => {
+    if(data.success) {
+        location.reload();
+    }
+});
 }
 
 // add a name
@@ -78,6 +101,7 @@ function insertRow(data) {
 
 }
 
+// display info if exists
 function showDataTable(data) {
     const table = document.querySelector('table tbody');
     console.log(data);

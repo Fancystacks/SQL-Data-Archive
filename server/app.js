@@ -29,9 +29,14 @@ app.get('/getPosts', (request, response) => {
   });
 
 // update
-// app.put('/:id', function (req, res) {
+app.patch('/update', function (request, response) {
+    const db = dbService.getServiceInstance();
+    const { id, name } = request.body;
+    const result =  db.editName(id, name);
 
-//   });
+    result.then(data => response.json({success : data}))
+    .catch(err => console.log(err));
+  });
 
 // delete
 app.delete('/delete/:id', function (request, response) {

@@ -81,6 +81,24 @@ class dbService {
             return false;
         }
     }
+
+    async editName(id, name) {
+        try {
+
+            const response = await new Promise((resolve, reject) => {
+                const query = "UPDATE names SET name = ? WHERE id = ?";
+        
+                connection.query(query, [name, id], (err, result) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(result);
+                })
+            });
+            return response === 1 ? true : false;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+    }
 }
 
 module.exports = dbService;
