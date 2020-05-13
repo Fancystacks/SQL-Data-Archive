@@ -8,8 +8,12 @@ document.querySelector('table tbody').addEventListener("click", function(event) 
     if(event.target.className ==="delete-button") {
         deleteRow(event.target.dataset.id)
     }
+    if (event.target.className === "edit-button") {
+        editRow(event.target.dataset.id)
+    }
 });
 
+// delete button & reload page
 function deleteRow(id) {
     fetch('http://localhost:3000/delete/' + id, {
         method: 'DELETE'
@@ -19,6 +23,12 @@ function deleteRow(id) {
             location.reload();
         }
     });
+}
+
+// update editnbutton
+function editRow(id) {
+const editSection = document.querySelector("#edit-row");
+editSection.hidden = false;
 }
 
 // add a name

@@ -8,13 +8,18 @@
   </head>
   <body>
     <main>
-      <label>Name:</label>
-      <input type="text" id="input-name" />
-      <button id="add-button">Add</button>
       <div>
         <input placeholder="Search ..." id="search-name" />
         <button id="search-button">Search</button>
       </div>
+      <label>Name:</label>
+      <input type="text" id="input-name" />
+      <button id="add-button">Add</button>
+      <section hidden id="edit-row">
+        <label>Updated Name:</label>
+        <input type="text" id="update-input" />
+        <button id="update-button">Update</button>
+      </section>
       <table>
         <thead>
           <th>ID Key</th>
