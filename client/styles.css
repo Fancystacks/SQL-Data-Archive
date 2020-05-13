@@ -11,9 +11,21 @@ td {
   border: 1px solid black;
   padding: 9px;
   border-radius: 4px;
+  background-color: white;
 }
 
 table,
 #search-name {
   margin: 20px auto;
+}
+
+body {
+  background-color: cadetblue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#search-name,
+#input-name {
+  border-radius: 4px;
+  padding: 5px;
 }
