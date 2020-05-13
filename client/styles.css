@@ -6,9 +6,11 @@ main {
 
 table,
 th,
-thead {
-  border: 1px double black;
-  padding: 5px;
+thead,
+td {
+  border: 1px solid black;
+  padding: 9px;
+  border-radius: 4px;
 }
 
 table,
