@@ -1,12 +1,24 @@
-// event handlers
 document.addEventListener('DOMContentLoaded', function() {
     fetch('http://localhost:3000/getPosts')
     .then(response => response.json())
     .then(data => showDataTable(data['data']));
 });
 
-const addButton = document.querySelector("#add-button");
+document.querySelector('table tbody').addEventListener("click", function(event) {
+    if(event.target.className ==="delete-button") {
+        deleteRow(event.target.dataset.id)
+    }
+});
 
+function deleteRow(id) {
+    fetch('http://localhost:3000/delete/' + id, {
+        method: 'DELETE'
+    }).then(response => response.json())
+    .then(data => console.log(data));
+}
+
+// add a name
+const addButton = document.querySelector("#add-button");
 addButton.onclick = function() {
     const inputName = document.querySelector('#input-name');
     const name = inputName.value;
@@ -72,5 +84,3 @@ function showDataTable(data) {
     });
     table.innerHTML = tableHTML;
 }
-
-// helpers

@@ -34,9 +34,9 @@ app.get('/getPosts', (request, response) => {
 //   });
 
 // delete
-// app.delete('/:id', function (req, res) {
-
-//   });
+app.delete('/delete/:id', function (request, response) {
+console.log(request.params);
+  });
 
 app.listen(PORT, function() {
     console.log(`Server listening on: http://localhost:${PORT}`);
