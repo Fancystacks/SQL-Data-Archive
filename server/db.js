@@ -67,17 +67,18 @@ class dbService {
     id = parseInt(id);
         try {
 
-            const insertId = await new Promise((resolve, reject) => {
+            const response = await new Promise((resolve, reject) => {
                 const query = "DELETE FROM names WHERE id = ?";
         
                 connection.query(query, [id], (err, result) => {
                     if (err) reject(new Error(err.message));
-                    resolve(result);
+                    resolve(result.affectedRows);
                 })
             });
-            
+            return response === 1 ? true : false;
         } catch (error) {
             console.log(error);
+            return false;
         }
     }
 }

@@ -39,7 +39,7 @@ const { id } = request.params;
 const db = dbService.getServiceInstance();
 const result =  db.deleteRow(id);
 
-    result.then(data => response.json({success : true}))
+    result.then(data => response.json({success : data}))
     .catch(err => console.log(err));
   });
 

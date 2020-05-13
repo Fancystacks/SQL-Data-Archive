@@ -14,7 +14,11 @@ function deleteRow(id) {
     fetch('http://localhost:3000/delete/' + id, {
         method: 'DELETE'
     }).then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        }
+    });
 }
 
 // add a name
