@@ -35,7 +35,12 @@ app.get('/getPosts', (request, response) => {
 
 // delete
 app.delete('/delete/:id', function (request, response) {
-console.log(request.params);
+const { id } = request.params;
+const db = dbService.getServiceInstance();
+const result =  db.deleteRow(id);
+
+    result.then(data => response.json({success : true}))
+    .catch(err => console.log(err));
   });
 
 app.listen(PORT, function() {
