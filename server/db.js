@@ -90,13 +90,31 @@ class dbService {
         
                 connection.query(query, [name, id], (err, result) => {
                     if (err) reject(new Error(err.message));
-                    resolve(result);
+                    resolve(result.affectedRows);
                 })
             });
             return response === 1 ? true : false;
         } catch (error) {
             console.log(error);
             return false;
+        }
+    }
+
+    async searchName(name) {
+        try {
+            const response = await new Promise((resolve, reject) => {
+                const query = "SELECT * FROM names WHERE name = ?";
+
+                connection.query(query, [name], (err, results) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(results);
+                })
+            });
+
+            return response;
+
+        } catch (error) {
+            console.log(error);
         }
     }
 }
