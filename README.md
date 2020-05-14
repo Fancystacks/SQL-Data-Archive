@@ -2,11 +2,11 @@
 
 ## Download:
 
-- `npm install` express, mySQL and cors
+- `npm install` express, mySQL and cors dependencies
 
 ## Usage:
 
-### Add a name to the database
+### `Add` a name to the database
 
 ![add](https://user-images.githubusercontent.com/38336934/81880099-c1839a00-9549-11ea-9bd4-422cea280ce4.gif)
 
@@ -14,7 +14,7 @@
 
 Press `edit` and wait for the input box to render
 
-Click `save` and the name will be saved with the original time stamp
+Click `save` . . . the name will be saved with the _original_ time stamp from which it was entered
 
 ![edit](https://user-images.githubusercontent.com/38336934/81880094-bdf01300-9549-11ea-9139-b099fea33867.gif)
 
@@ -26,6 +26,6 @@ Press `delete` button with corresponding name
 
 ## Search :
 
-- Search first and last name
+- `Search` database using first and last name
 
 ![search](https://user-images.githubusercontent.com/38336934/81880494-e593ab00-954a-11ea-9440-24ec4ef53239.gif)
