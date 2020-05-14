@@ -12,6 +12,7 @@ td {
   padding: 9px;
   border-radius: 4px;
   background-color: white;
+  color: black;
 }
 
 table,
@@ -20,12 +21,29 @@ table,
 }
 
 body {
-  background-color: cadetblue;
+  background: rgb(38, 7, 21);
+  background: radial-gradient(
+    circle,
+    rgba(38, 7, 21, 0.4150035014005602) 0%,
+    rgba(0, 0, 0, 0.9766281512605042) 100%
+  );
   font-family: Arial, Helvetica, sans-serif;
+  color: whitesmoke;
 }
 
 #search-name,
-#input-name {
+#input-name,
+#update-input {
   border-radius: 4px;
   padding: 5px;
+  width: 50%;
+}
+
+button {
+  padding: 6px;
+  border-radius: 4px;
+}
+
+#update-input {
+  margin: 25px 0;
 }
